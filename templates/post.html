@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+    <style>
+        /* Цветовая схема */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6e6e6;
+            text-align: center;
+            margin: 20px;
+        }
+        .post {
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        img {
+            max-width: 200%;
+        }
+    </style>
+</head>
+<body>
+    {% for i in post_key %}
+        <div class="post">
+            <h2>{{ i.title }}</h2>
+            <p>{{ i.description }}</p>
+            <img src="{{ i.image.url }}" alt="{{ i.title }}">
+            <p>Дата создания: {{ i.create_at }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
